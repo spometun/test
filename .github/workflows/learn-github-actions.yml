@@ -3,11 +3,15 @@ run-name: ${{ github.actor }} is learning run-name3
 on: [push]
 jobs:
   in_dockerfile:
-    # runs-on: ubuntu-latest
-    runs-on: http://150303506660.dkr.ecr.us-west-2.amazonaws.com/interlink/solink-ubuntu:1.0.0-dev
+    runs-on: ubuntu-latest
+    # runs-on: http://150303506660.dkr.ecr.us-west-2.amazonaws.com/interlink/solink-ubuntu:1.0.0-dev
     # container: http://150303506660.dkr.ecr.us-west-2.amazonaws.com/interlink/solink-ubuntu:1.0.0-dev
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: try dockerfile name
+        uses: ./github/actions/
+	id: run_in_docker.yml
       - run: python --version
       - run: cat Dockerfile
 
