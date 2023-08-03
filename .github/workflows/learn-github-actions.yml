@@ -1,0 +1,10 @@
+name: learn-github-actions-name
+run-name: ${{ github.actor }} is learning GitHub Actions run-name
+on: [push]
+jobs:
+  check-python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: python --version
+
