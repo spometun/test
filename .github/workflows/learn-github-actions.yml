@@ -1,10 +1,11 @@
 name: learn-github-actions-name
-run-name: ${{ github.actor }} is learning run-name2
+run-name: ${{ github.actor }} is learning run-name3
 on: [push]
 jobs:
-  unittests:
-    runs-on: ubuntu-latest
-    container: http://150303506660.dkr.ecr.us-west-2.amazonaws.com/interlink/solink-ubuntu:1.0.0-dev
+  in_dockerfile:
+    # runs-on: ubuntu-latest
+    runs-on: http://150303506660.dkr.ecr.us-west-2.amazonaws.com/interlink/solink-ubuntu:1.0.0-dev
+    # container: http://150303506660.dkr.ecr.us-west-2.amazonaws.com/interlink/solink-ubuntu:1.0.0-dev
     steps:
       - uses: actions/checkout@v3
       - run: python --version
